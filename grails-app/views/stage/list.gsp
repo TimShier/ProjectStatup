@@ -35,6 +35,8 @@
 						<g:sortableColumn property="mark" title="${message(code: 'stage.mark.label', default: 'Mark')}" />
 					
 						<g:sortableColumn property="orderIndex" title="${message(code: 'stage.orderIndex.label', default: 'Order Index')}" />
+
+                        <th>Actions</th>
 					
 					</tr>
 				</thead>
@@ -53,6 +55,8 @@
 						<td>${fieldValue(bean: stageInstance, field: "mark")}</td>
 					
 						<td>${fieldValue(bean: stageInstance, field: "orderIndex")}</td>
+
+                        <td><g:link action="manageAnswers" id="${stageInstance.id}">Manage answers</g:link></td>
 					
 					</tr>
 				</g:each>

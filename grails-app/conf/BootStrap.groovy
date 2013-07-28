@@ -121,7 +121,7 @@ class BootStrap {
 
         Question question2 = new Question(
                 value: 20,
-                helpText: "Answer the question",
+                helpText: "Answer the question2",
                 stage: stage1,
                 orderIndex: 1
         ).save()
