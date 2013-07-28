@@ -1,5 +1,4 @@
 import startupfunnel.app.User
-import startupfunnel.app.enums.RoleTypeEnum
 
 class BootStrap {
 
