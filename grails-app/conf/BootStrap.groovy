@@ -3,6 +3,9 @@ import startupfunnel.app.enums.RolePosition
 import startupfunnel.app.enums.RoleType
 import startupfunnel.app.Project
 import startupfunnel.app.Contact
+import startupfunnel.app.Question
+import startupfunnel.app.Stage
+import startupfunnel.app.enums.StageStatus
 
 class BootStrap {
 
@@ -92,7 +95,36 @@ class BootStrap {
                 role: RoleType.ADJUDICATOR,
                 position: RolePosition.LEAD,
                 project: project1
-        )
+        ).save()
+
+        /*
+         *    --- STAGES ---
+        */
+        Stage stage1 = new Stage(
+                status: StageStatus.ACTIVE,
+                startDate: new Date(),
+                endDate: new Date(),
+                deadline: new Date(),
+                title: "Stage One (fight)",
+                description: "This is the first stage",
+        ).save()
+
+
+        /*
+         *    --- QUESTIONS ---
+        */
+        Question question1 = new Question(
+                value: 10,
+                helpText: "Answer the question",
+                stage: stage1
+        ).save()
+
+        Question question2 = new Question(
+                value: 20,
+                helpText: "Answer the question",
+                stage: stage1,
+                orderIndex: 1
+        ).save()
 
     }
     def destroy = {
