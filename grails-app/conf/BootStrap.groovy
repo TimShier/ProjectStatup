@@ -1,4 +1,7 @@
+import startupfunnel.app.Contact
+import startupfunnel.app.Project
 import startupfunnel.app.User
+import startupfunnel.app.enums.RolePosition
 import startupfunnel.app.enums.RoleType
 
 class BootStrap {
@@ -21,13 +24,7 @@ class BootStrap {
                 role: RoleType.ADMIN
         ).save()
 
-        User tim = new User(
-                 emailAddress: "tim.shier@instantafrica.com",
-                 firstName: "Tim",
-                 lastName: "Sh",
-                 password: "12345",
-                 role: RoleType.ADMIN
-         ).save()
+
 
 
     }
