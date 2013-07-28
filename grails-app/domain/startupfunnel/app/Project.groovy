@@ -5,8 +5,9 @@ class Project {
     Date startDate
     Date dateCreated
     Date presentationDate
+    ProjectSkeleton skeleton
 
-    static hasMany = [contacts:Contact, stages:Stage] // all contacts on project. | all stages in this project.
+    static hasMany = [contacts:Contact, answers:Answer] // all contacts on project. | all stages in this project.
 
     static constraints = {
     }

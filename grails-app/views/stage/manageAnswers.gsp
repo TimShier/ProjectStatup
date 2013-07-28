@@ -21,75 +21,7 @@
 
                     </div>
                     <div class="box-content">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-
-                                <th>Name</th>
-
-                                <th>Description</th>
-
-                                <th>Price per survey</th>
-
-                                <th>Active</th>
-
-
-                                <th>Surveys started</th>
-
-                                <th>Total surveys</th>
-
-                                <th>Manage</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <g:each in="${surveyInstanceList}" status="i" var="surveyInstance">
-                                <tr>
-
-                                    <td class="center">${fieldValue(bean: surveyInstance, field: "name")}</td>
-
-                                    <td class="center">${fieldValue(bean: surveyInstance, field: "description")}</td>
-
-                                    <td class="center">${fieldValue(bean: surveyInstance, field: "unitValue")}</td>
-
-
-                                    <td class="center">
-                                        <g:if test="${surveyInstance.isActive}">
-                                            <span class="label label-success">Active</span>
-                                        </g:if>
-
-                                        <g:if test="${!surveyInstance.isActive}">
-                                            <span class="label">Inactive</span>
-                                        </g:if>
-
-                                    </td>
-
-
-
-                                    <td>${surveyInstance.userSurveys.size()}</td>
-
-                                    <td>${surveyInstance.totalVolume}</td>
-
-                                    <td class="center">
-
-                                        <g:link action="report" id="${surveyInstance.id}" class="btn btn-success" >
-                                            <i class="icon-zoom-in icon-white"></i>
-                                        </g:link>
-                                        <g:link action="edit" id="${surveyInstance.id}" class="btn btn-info" >
-                                            <i class="icon-edit icon-white"></i>
-                                        </g:link>
-                                        <g:link action="toggleActive" class="btn btn-danger" id="${surveyInstance.id}">
-                                            <i class="icon-trash icon-white"></i>
-                                        </g:link>
-                                    </td>
-
-                                </tr>
-                            </g:each>
-
-
-                            </tbody>
-                        </table>
-                        <g:actionSubmit class="btn btn-primary" controller="survey" action="create_custom" value="New Survey" />
+                        blah
                     </div>
                 </div>
             </g:each>

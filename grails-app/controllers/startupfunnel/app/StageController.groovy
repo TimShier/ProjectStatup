@@ -17,7 +17,6 @@ class StageController {
 
     def manageAnswers(){
         // expects Stage id as params.id
-        params.id = 0
         Stage stage = Stage.get(params.id)
 
         if(stage){
@@ -37,7 +36,7 @@ class StageController {
 
                 // first, figure out which Answer is most recent.
 
-                def answer = question.answers.sort{it.version}.take(0) // sort then grab the first.
+                def answer = question.answers.sort{it.version}//.take(1) // sort then grab the first.
                 Map holder = ["question":question, "answer":answer]
                 questionAnswerMap[index] = holder
                 println "${answer} << Answer"

@@ -7,7 +7,7 @@ class Answer {
     String text
     Date dateCreated
 
-    static belongsTo = [question:Question]
+    static belongsTo = [project:Project]
     static hasMany = [scores:Score]
 
 

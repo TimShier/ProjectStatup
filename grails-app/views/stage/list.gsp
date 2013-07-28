@@ -56,7 +56,7 @@
 					
 						<td>${fieldValue(bean: stageInstance, field: "orderIndex")}</td>
 
-                        <td><g:link action="manageAnswers" id="${stageInstance.id}">Manage answers</g:link></td>
+                        <td><g:link action="manageAnswers" id="${stageInstance.id}">Manage answers | ${stageInstance.id}</g:link></td>
 					
 					</tr>
 				</g:each>

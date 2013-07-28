@@ -16,5 +16,6 @@ class Stage {
     static hasMany=[questions:Question]
 
     static constraints = {
+        mark(nullable:true) // must be to start.
     }
 }

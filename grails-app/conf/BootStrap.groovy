@@ -1,3 +1,4 @@
+import startupfunnel.app.ProjectSkeleton
 import startupfunnel.app.User
 import startupfunnel.app.enums.RolePosition
 import startupfunnel.app.enums.RoleType
@@ -71,7 +72,7 @@ class BootStrap {
         Project project1 = new Project(
                 name: "Project One",
                 startDate: new Date(),
-                presentationDate: new Date()
+                presentationDate: new Date() + 200 // in 200 days time.
         ).save()
 
 
@@ -102,14 +103,17 @@ class BootStrap {
         /*
          *    --- STAGES ---
         */
+
+
+
         Stage stage1 = new Stage(
                 status: StageStatus.ACTIVE,
                 startDate: new Date(),
                 endDate: new Date(),
                 deadline: new Date(),
                 title: "Stage One (fight)",
-                description: "This is the first stage",
-        ).save()
+                description: "This is the first stage"
+        ).save(failOnError: true)
 
 
         /*
@@ -130,29 +134,37 @@ class BootStrap {
                 orderIndex: 1
         ).save()
 
+        ProjectSkeleton projectSkeleton = new ProjectSkeleton(
+                name: "Standard template",
+                stages: [stage1]
+        ).save(failOnError: true)
+
+        project1.skeleton = projectSkeleton
+        project1.save()
+
         /*
          *    --- ANSWERS ---
         */
         Answer answer1 = new Answer(
                 text: "yes",
-                question: question1
+                project:project1
         ).save()
 
         Answer answer2 = new Answer(
                 text: "no",
-                question: question1,
+                project:project1,
                 versionNumber: 1
         ).save()
 
         Answer answer3 = new Answer(
                 text: "maybe",
-                question: question1,
+                project:project1,
                 versionNumber: 2
         ).save()
 
         Answer answer4 = new Answer(
                 text: "only when in doubt.",
-                question: question2,
+                project:project1,
         ).save()
 
         /*
