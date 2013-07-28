@@ -47,6 +47,15 @@ class BootStrap {
 
 
 
+        User tim = new User(
+                 emailAddress: "tim.shier@instantafrica.com",
+                 firstName: "Tim",
+                 lastName: "Sh",
+                 password: "12345",
+                 role: RoleType.ADMIN
+         ).save()
+
+
     }
     def destroy = {
     }
