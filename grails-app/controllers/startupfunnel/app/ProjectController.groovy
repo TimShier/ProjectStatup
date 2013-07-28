@@ -31,12 +31,13 @@ class ProjectController {
     }
 
     def continueProject(){
-        // expects project ID.
+        // expects project ID in params.id
         println params
         Project project = Project.get(params.id)
         if(!project)
         {
             flash.message = "Couldn't find that project"
+            println "FAILED"
             redirect(action:"index")
             return
         }
