@@ -6,6 +6,7 @@ class Stage {
     StageStatusEnum stage
     Date startDate
     Date endDate
+    Date dateCreated
     Date deadline
     Integer mark // WTF
     String title

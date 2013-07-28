@@ -10,6 +10,8 @@ class Contact {
 
     RolePositionEnum.RolePosition position
 
+    Date dateCreated
+
     static belongsTo = [project:Project]
 
     static constraints = {
