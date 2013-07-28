@@ -23,7 +23,7 @@ class BootStrap {
                 lastName: "admin",
                 password: "password",
                 role: RoleType.ADMIN
-        ).save()
+        ).save(failOnError: true)
 
         User student = new User(
                 emailAddress: "student@projectstartup.com",
@@ -31,7 +31,7 @@ class BootStrap {
                 lastName: "student",
                 password: "password",
                 role: RoleType.STUDENT
-        ).save()
+        ).save(failOnError: true)
 
         User student2 = new User(
                 emailAddress: "student2@projectstartup.com",
@@ -39,7 +39,7 @@ class BootStrap {
                 lastName: "student",
                 password: "password",
                 role: RoleType.STUDENT
-        ).save()
+        ).save(failOnError: true)
 
         User mentor = new User(
                 emailAddress: "mentor@projectstartup.com",
@@ -47,7 +47,7 @@ class BootStrap {
                 lastName: "mentor",
                 password: "password",
                 role: RoleType.MENTOR
-        ).save()
+        ).save(failOnError: true)
 
         User adjudicator = new User(
                 emailAddress: "adjudicator@projectstartup.com",
@@ -55,7 +55,7 @@ class BootStrap {
                 lastName: "adjudicator",
                 password: "password",
                 role: RoleType.ADJUDICATOR
-        ).save()
+        ).save(failOnError: true)
 
         User tim = new User(
                  emailAddress: "tim.shier@instantafrica.com",
@@ -63,7 +63,7 @@ class BootStrap {
                  lastName: "Sh",
                  password: "12345",
                  role: RoleType.ADMIN
-         ).save()
+         ).save(failOnError: true)
 
         /*
          *    --- PROJECT SKELETON ---
@@ -92,21 +92,21 @@ class BootStrap {
                 role: RoleType.STUDENT,
                 position: RolePosition.LEAD,
                 project: project1
-        ).save()
+        ).save(failOnError: true)
 
         Contact memberContact = new Contact(
                 user: student2,
                 role: RoleType.STUDENT,
                 position: RolePosition.MEMBER,
                 project: project1
-        ).save()
+        ).save(failOnError: true)
 
         Contact adjudicatorContact = new Contact(
                 user: adjudicator,
                 role: RoleType.ADJUDICATOR,
                 position: RolePosition.LEAD,
                 project: project1
-        ).save()
+        ).save(failOnError: true)
 
         /*
          *    --- STAGES ---
@@ -130,7 +130,7 @@ class BootStrap {
                 value: 10,
                 helpText: "Answer the question",
                 stage: stage1
-        ).save()
+        ).save(failOnError: true)
 
         Question question2 = new Question(
                 text: "Ron Burgundy?",
@@ -138,32 +138,36 @@ class BootStrap {
                 helpText: "Answer the question2",
                 stage: stage1,
                 orderIndex: 1
-        ).save()
+        ).save(failOnError: true)
 
         /*
          *    --- ANSWERS ---
         */
         Answer answer1 = new Answer(
                 text: "yes",
-                project:project1
-        ).save()
+                project: project1,
+                createdBy: student
+        ).save(failOnError: true)
 
         Answer answer2 = new Answer(
                 text: "no",
-                project:project1,
-                versionNumber: 1
-        ).save()
+                project: project1,
+                versionNumber: 1,
+                createdBy: student
+        ).save(failOnError: true)
 
         Answer answer3 = new Answer(
                 text: "maybe",
-                project:project1,
-                versionNumber: 2
-        ).save()
+                project: project1,
+                versionNumber: 2,
+                createdBy: student
+        ).save(failOnError: true)
 
         Answer answer4 = new Answer(
                 text: "only when in doubt.",
-                project:project1,
-        ).save()
+                project: project1,
+                createdBy: student,
+        ).save(failOnError: true)
 
         /*
          *    --- SCORES ---
@@ -173,21 +177,21 @@ class BootStrap {
                 feedback: "rad. dug it.",
                 value: 8,
                 answer: answer3
-        ).save()
+        ).save(failOnError: true)
 
         Score score2 = new Score(
                 createdBy: adjudicator,
                 feedback: "horrible..",
                 value: 1,
                 answer: answer3
-        ).save()
+        ).save(failOnError: true)
 
         Score score3 = new Score(
                 createdBy: mentor,
                 feedback: "decent.",
                 value: 5,
                 answer: answer2
-        ).save()
+        ).save(failOnError: true)
 
     }
     def destroy = {
