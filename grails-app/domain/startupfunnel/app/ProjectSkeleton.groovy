@@ -9,7 +9,6 @@ class ProjectSkeleton {
 
     static hasMany = [stages:Stage]
 
-
     static constraints = {
     }
 }

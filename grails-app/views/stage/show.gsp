@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list stage">
 			
+				<g:if test="${stageInstance?.mark}">
+				<li class="fieldcontain">
+					<span id="mark-label" class="property-label"><g:message code="stage.mark.label" default="Mark" /></span>
+					
+						<span class="property-value" aria-labelledby="mark-label"><g:fieldValue bean="${stageInstance}" field="mark"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${stageInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="stage.dateCreated.label" default="Date Created" /></span>
@@ -59,15 +68,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${stageInstance?.mark}">
-				<li class="fieldcontain">
-					<span id="mark-label" class="property-label"><g:message code="stage.mark.label" default="Mark" /></span>
-					
-						<span class="property-value" aria-labelledby="mark-label"><g:fieldValue bean="${stageInstance}" field="mark"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${stageInstance?.orderIndex}">
 				<li class="fieldcontain">
 					<span id="orderIndex-label" class="property-label"><g:message code="stage.orderIndex.label" default="Order Index" /></span>
@@ -88,11 +88,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${stageInstance?.stage}">
+				<g:if test="${stageInstance?.skeleton}">
 				<li class="fieldcontain">
-					<span id="stage-label" class="property-label"><g:message code="stage.stage.label" default="Stage" /></span>
+					<span id="skeleton-label" class="property-label"><g:message code="stage.skeleton.label" default="Skeleton" /></span>
 					
-						<span class="property-value" aria-labelledby="stage-label"><g:link controller="stageStatusEnum" action="show" id="${stageInstance?.stage?.id}">${stageInstance?.stage?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="skeleton-label"><g:link controller="projectSkeleton" action="show" id="${stageInstance?.skeleton?.id}">${stageInstance?.skeleton?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -102,6 +102,15 @@
 					<span id="startDate-label" class="property-label"><g:message code="stage.startDate.label" default="Start Date" /></span>
 					
 						<span class="property-value" aria-labelledby="startDate-label"><g:formatDate date="${stageInstance?.startDate}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${stageInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="stage.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${stageInstance}" field="status"/></span>
 					
 				</li>
 				</g:if>

@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'mark', 'error')} ">
+	<label for="mark">
+		<g:message code="stage.mark.label" default="Mark" />
+		
+	</label>
+	<g:field type="number" name="mark" value="${stageInstance.mark}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'deadline', 'error')} required">
 	<label for="deadline">
 		<g:message code="stage.deadline.label" default="Deadline" />
@@ -24,14 +32,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="endDate" precision="day"  value="${stageInstance?.endDate}"  />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'mark', 'error')} required">
-	<label for="mark">
-		<g:message code="stage.mark.label" default="Mark" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="number" name="mark" required="" value="${stageInstance.mark}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'orderIndex', 'error')} required">
@@ -59,12 +59,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'stage', 'error')} required">
-	<label for="stage">
-		<g:message code="stage.stage.label" default="Stage" />
+<div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'skeleton', 'error')} required">
+	<label for="skeleton">
+		<g:message code="stage.skeleton.label" default="Skeleton" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="stage" name="stage.id" from="${startupfunnel.app.enums.StageStatusEnum.list()}" optionKey="id" required="" value="${stageInstance?.stage?.id}" class="many-to-one"/>
+	<g:select id="skeleton" name="skeleton.id" from="${startupfunnel.app.ProjectSkeleton.list()}" optionKey="id" required="" value="${stageInstance?.skeleton?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'startDate', 'error')} required">
@@ -73,6 +73,14 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="startDate" precision="day"  value="${stageInstance?.startDate}"  />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'status', 'error')} required">
+	<label for="status">
+		<g:message code="stage.status.label" default="Status" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="status" from="${startupfunnel.app.enums.StageStatus?.values()}" keys="${startupfunnel.app.enums.StageStatus.values()*.name()}" required="" value="${stageInstance?.status?.name()}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: stageInstance, field: 'title', 'error')} ">

@@ -15,45 +15,6 @@ class StageController {
         [stageInstanceList: Stage.list(params), stageInstanceTotal: Stage.count()]
     }
 
-    def manageAnswers(){
-        // expects Stage id as params.id
-        Stage stage = Stage.get(params.id)
-
-        if(stage){
-            // id known. SUCCESS.
-
-            // the gsp will need a map of question / most recent answer pairs.
-
-
-            def questions = Question.findAllByStage(stage).sort{it.orderIndex}
-            println "${questions} << Questions"
-
-            // built the map QuestionAnswerMap[ordering] = ["question":Question, "answer":Answer]
-            Map questionAnswerMap = [:]
-
-            questions.eachWithIndex{Question question, Integer index ->
-                // for each question (in order) build the map.
-
-                // first, figure out which Answer is most recent.
-
-                def answer = question.answers.sort{it.version}//.take(1) // sort then grab the first.
-                Map holder = ["question":question, "answer":answer]
-                questionAnswerMap[index] = holder
-                println "${answer} << Answer"
-
-            }
-            [questionAnswerMap:questionAnswerMap]
-            return
-        }
-        else
-        {
-            // not known. FAILED.
-            flash.message = "Sorry, that stage isn't available."
-            redirect(action:"list")
-            return
-        }
-    }
-
     def create() {
         [stageInstance: new Stage(params)]
     }
