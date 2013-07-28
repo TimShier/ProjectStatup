@@ -83,7 +83,7 @@ class BootStrap {
                 presentationDate: new Date() + 200 // in 200 days time.
         ).save(failOnError: true)
 
-
+        println "${project1.id} << Project ID. [bootstrap]"
         /*
          *    --- CONTACTS ---
         */
@@ -119,6 +119,17 @@ class BootStrap {
                 title: "Stage One (fight)",
                 description: "This is the first stage",
                 skeleton: projectSkeleton
+        ).save(failOnError: true)
+
+        Stage stage2 = new Stage(
+                status: StageStatus.ACTIVE,
+                startDate: new Date(),
+                endDate: new Date(),
+                deadline: new Date(),
+                title: "Stage Two (fight too)",
+                description: "This is the second stage",
+                skeleton: projectSkeleton,
+                orderIndex: 1
         ).save(failOnError: true)
 
 
