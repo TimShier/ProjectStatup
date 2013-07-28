@@ -30,19 +30,31 @@ class ProjectController {
         redirect(action: "show", id: projectInstance.id)
     }
 
-    def doStage(){
+    def continueProject(){
         // expects project ID.
         println params
         Project project = Project.get(params.id)
         if(!project)
         {
+            flash.message = "Couldn't find that project"
             redirect(action:"index")
             return
         }
 
         def stages = Stage.findAllBySkeleton(project.skeleton).sort{it.orderIndex}
+        Stage stage = stages.get(project.currentOrderIndex)
+
+        // return a QuestionAnswerMap QuestionAnswerMap[Question] = [answer1,answer2,answer3] // all relating to this question.
+        Map questionAnswerMap = [:]
+
+        stage.questions.sort{it.orderIndex}.each{Question question ->
+            List <Answer> answers = Answer.findAllByQuestion(question).sort{it.versionNumber}
+
+            questionAnswerMap[question] = answers
+        }
+
         println "${stages} << Stages"
-        render(stages)
+        [questionAnswerMap:questionAnswerMap]
     }
 
     def show() {
