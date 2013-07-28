@@ -65,6 +65,13 @@ class BootStrap {
                  role: RoleType.ADMIN
          ).save()
 
+        /*
+         *    --- PROJECT SKELETON ---
+        */
+        ProjectSkeleton projectSkeleton = new ProjectSkeleton(
+                name: "Standard template",
+                createdBy: admin
+        ).save(failOnError: true)
 
         /*
          *    --- PROJECTS ---
@@ -72,6 +79,7 @@ class BootStrap {
         Project project1 = new Project(
                 name: "Project One",
                 startDate: new Date(),
+                skeleton: projectSkeleton,
                 presentationDate: new Date() + 200 // in 200 days time.
         ).save(failOnError: true)
 
@@ -103,16 +111,14 @@ class BootStrap {
         /*
          *    --- STAGES ---
         */
-
-
-
         Stage stage1 = new Stage(
                 status: StageStatus.ACTIVE,
                 startDate: new Date(),
                 endDate: new Date(),
                 deadline: new Date(),
                 title: "Stage One (fight)",
-                description: "This is the first stage"
+                description: "This is the first stage",
+                skeleton: projectSkeleton
         ).save(failOnError: true)
 
 
@@ -133,15 +139,6 @@ class BootStrap {
                 stage: stage1,
                 orderIndex: 1
         ).save()
-
-        ProjectSkeleton projectSkeleton = new ProjectSkeleton(
-                name: "Standard template",
-                stages: [stage1],
-                createdBy: admin
-        ).save(failOnError: true)
-
-        project1.skeleton = projectSkeleton
-        project1.save()
 
         /*
          *    --- ANSWERS ---
