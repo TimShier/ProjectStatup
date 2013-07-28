@@ -3,7 +3,7 @@ package startupfunnel.app
 import startupfunnel.app.enums.StageStatus
 
 class Stage {
-    StageStatus stage
+    StageStatus status
     Date startDate
     Date endDate
     Date dateCreated
