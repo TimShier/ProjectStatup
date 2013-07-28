@@ -14,5 +14,6 @@ class Answer {
 
 
     static constraints = {
+        value(nullable: true)
     }
 }
