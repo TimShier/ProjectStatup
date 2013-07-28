@@ -76,8 +76,7 @@
                                     <g:if test="${projectSkeletonInstance?.stages}">
                                         <li class="fieldcontain">
                                             <span id="stages-label" class="property-label"><g:message code="projectSkeleton.stages.label" default="Stages" /></span>
-
-                                            <g:render template="/stage/inner-list" model="${[stageInstanceList: projectSkeletonInstance?.stages, stageInstanceTotal: projectSkeletonInstance?.stages?.size()]}"/>
+                                            <g:render template="/stage/inner-edit-list" model="${[stageInstanceList: projectSkeletonInstance?.stages, stageInstanceTotal: projectSkeletonInstance?.stages?.size()]}"/>
                                         </li>
                                     </g:if>
                                 </ul>
