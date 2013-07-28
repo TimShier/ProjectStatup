@@ -73,19 +73,26 @@ class BootStrap {
         /*
          *    --- CONTACTS ---
         */
-        Contact lead = new Contact(
+        Contact leadContact = new Contact(
                 user: student,
                 role: RoleType.STUDENT,
                 position: RolePosition.LEAD,
                 project: project1
         ).save()
 
-        Contact member = new Contact(
+        Contact memberContact = new Contact(
                 user: student2,
                 role: RoleType.STUDENT,
                 position: RolePosition.MEMBER,
                 project: project1
         ).save()
+
+        Contact adjudicatorContact = new Contact(
+                user: adjudicator,
+                role: RoleType.ADJUDICATOR,
+                position: RolePosition.LEAD,
+                project: project1
+        )
 
     }
     def destroy = {
