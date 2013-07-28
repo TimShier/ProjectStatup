@@ -1,4 +1,5 @@
 import startupfunnel.app.User
+import startupfunnel.app.enums.RoleType
 
 class BootStrap {
 
@@ -19,6 +20,15 @@ class BootStrap {
                 password: "pA5sW0rD",
                 role: RoleType
         ).save()*/
+
+        User tim = new User(
+                 emailAddress: "tim.shier@instantafrica.com",
+                 firstName: "Tim",
+                 lastName: "Sh",
+                 password: "12345",
+                 role: RoleType.ADMIN
+         ).save()
+
 
     }
     def destroy = {
