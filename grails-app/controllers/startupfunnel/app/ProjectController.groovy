@@ -42,7 +42,7 @@ class ProjectController {
         }
 
         def stages = Stage.findAllBySkeleton(project.skeleton).sort{it.orderIndex}
-        Stage stage = stages.get(project.currentOrderIndex)
+        Stage stage = stages.get(project.currentOrderIndex ?: 0)
 
         // return a QuestionAnswerMap QuestionAnswerMap[Question] = [answer1,answer2,answer3] // all relating to this question.
         Map questionAnswerMap = [:]
