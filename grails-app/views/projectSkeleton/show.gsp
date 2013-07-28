@@ -21,54 +21,73 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list projectSkeleton">
-               %{-- <g:if test="${projectSkeletonInstance?.name}">
-                    <li class="fieldcontain">
-                        <span id="name-label" class="property-label"><g:message code="projectSkeleton.name.label" default="Name" /></span>
 
-                        <span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${projectSkeletonInstance}" field="name"/></span>
 
-                    </li>
-                </g:if>--}%
+            <div class="container-fluid">
+                <div class="content scaffold-list" role="main">
+                    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+                    <g:if test="${flash.message}">
+                        <div class="message" role="status">${flash.message}</div>
+                    </g:if>
+                    <div id="questionMore"  class="row-fluid">
+                        <div class="box span12">
+                            <div class="box-header" data-original-title>
+                                <h2><i class="icon-edit"></i><span class="break"></span><span id="add_question_text">${projectSkeletonInstance?.name}</span></h2>
 
-				<g:if test="${projectSkeletonInstance?.createdBy}">
-				<li class="fieldcontain">
-					<span id="createdBy-label" class="property-label"><g:message code="projectSkeleton.createdBy.label" default="Created By" /></span>
-					
-						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${projectSkeletonInstance?.createdBy?.id}">${projectSkeletonInstance?.createdBy?.emailAddress?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectSkeletonInstance?.dateCreated}">
-				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="projectSkeleton.dateCreated.label" default="Date Created" /></span>
-					
-						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${projectSkeletonInstance?.dateCreated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectSkeletonInstance?.lastUpdated}">
-				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="projectSkeleton.lastUpdated.label" default="Last Updated" /></span>
-					
-						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${projectSkeletonInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectSkeletonInstance?.stages}">
-				<li class="fieldcontain">
-					<span id="stages-label" class="property-label"><g:message code="projectSkeleton.stages.label" default="Stages" /></span>
-					
-						<g:each in="${projectSkeletonInstance.stages}" var="s">
-						<span class="property-value" aria-labelledby="stages-label"><g:link controller="stage" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			</ol>
+                            </div>
+                            <div class="box-content">
+                                <ul class="property-list projectSkeleton">
+                                %{-- <g:if test="${projectSkeletonInstance?.name}">
+                                    <li class="fieldcontain">
+                                        <span id="name-label" class="property-label"><g:message code="projectSkeleton.name.label" default="Name" /></span>
+
+                                        <span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${projectSkeletonInstance}" field="name"/></span>
+
+                                    </li>
+                                </g:if>--}%
+
+                                    <g:if test="${projectSkeletonInstance?.createdBy}">
+                                        <li class="fieldcontain">
+                                            <span id="createdBy-label" class="property-label"><g:message code="projectSkeleton.createdBy.label" default="Created By" /></span>
+
+                                            <span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${projectSkeletonInstance?.createdBy?.id}">${projectSkeletonInstance?.createdBy?.emailAddress?.encodeAsHTML()}</g:link></span>
+
+                                        </li>
+                                    </g:if>
+
+                                    <g:if test="${projectSkeletonInstance?.dateCreated}">
+                                        <li class="fieldcontain">
+                                            <span id="dateCreated-label" class="property-label"><g:message code="projectSkeleton.dateCreated.label" default="Date Created" /></span>
+
+                                            <span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${projectSkeletonInstance?.dateCreated}" /></span>
+
+                                        </li>
+                                    </g:if>
+
+                                    <g:if test="${projectSkeletonInstance?.lastUpdated}">
+                                        <li class="fieldcontain">
+                                            <span id="lastUpdated-label" class="property-label"><g:message code="projectSkeleton.lastUpdated.label" default="Last Updated" /></span>
+
+                                            <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${projectSkeletonInstance?.lastUpdated}" /></span>
+
+                                        </li>
+                                    </g:if>
+
+                                    <g:if test="${projectSkeletonInstance?.stages}">
+                                        <li class="fieldcontain">
+                                            <span id="stages-label" class="property-label"><g:message code="projectSkeleton.stages.label" default="Stages" /></span>
+
+                                            <g:render template="/stage/inner-list" model="${[stageInstanceList: projectSkeletonInstance?.stages, stageInstanceTotal: projectSkeletonInstance?.stages?.size()]}"/>
+                                        </li>
+                                    </g:if>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end question-->
+                    </div>
+                </div>
+
+
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${projectSkeletonInstance?.id}" />
@@ -77,5 +96,7 @@
 				</fieldset>
 			</g:form>
 		</div>
-	</body>
+
+
+    </body>
 </html>
