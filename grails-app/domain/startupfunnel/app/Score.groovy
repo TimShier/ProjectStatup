@@ -1,16 +1,18 @@
 package startupfunnel.app
 
+import startupfunnel.app.enums.ScoreStatus
+
 class Score {
     User createdBy
     Integer value
     String feedback
     Date dateCreated
-    Boolean approved = false
+    ScoreStatus status = ScoreStatus.UNDERREVIEW
 
     static belongsTo = [answer:Answer]
 
     static constraints = {
-        approved(nullable: true)
+        status(nullable: true)
 
     }
 }

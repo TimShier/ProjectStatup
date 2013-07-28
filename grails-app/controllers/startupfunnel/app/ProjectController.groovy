@@ -50,9 +50,8 @@ class ProjectController {
         Map questionAnswerMap = [:]
 
         stage.questions.sort{it.orderIndex}.each{Question question ->
-            List <Answer> answers = Answer.findAllByQuestionAndProject(question, project).sort{it.versionNumber}
 
-            questionAnswerMap[question] = answers
+            questionAnswerMap[question] = Answer.findAllByQuestionAndProject(question, project).sort{-it.versionNumber}[0]
         }
 
         println "${stages} << Stages"
