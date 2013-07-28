@@ -1,16 +1,15 @@
 package startupfunnel.app
 
-import startupfunnel.app.enums.RoleTypeEnum
+import startupfunnel.app.enums.RoleType
 
 class User {
-    String emailAddress
-    String firstName
-    String lastName
-    String password // encrypted.
 
+    String  emailAddress,
+            firstName,
+            lastName,
+            password // encrypted.
 
-
-    RoleTypeEnum role
+    RoleType role
 
     static constraints = {
         emailAddress(nullable:false, email:true)

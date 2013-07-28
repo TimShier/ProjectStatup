@@ -3,26 +3,24 @@ import startupfunnel.app.User
 class BootStrap {
 
     def init = { servletContext ->
-        setupForLocal()
+
+        //Users
+        /*String  emailAddress,
+                firstName,
+                lastName,
+                password // encrypted.
+
+        RoleTypeEnum role    */
+
+       /* User user1 = new User(
+                emailAddress: "email@address.com",
+                firstName: "first",
+                lastName: "last",
+                password: "pA5sW0rD",
+                role: RoleType
+        ).save()*/
+
     }
     def destroy = {
-    }
-
-    def setupForLocal(){
-        // do basic local bootstrap. All the shit and the kitchen sink.
-
-        //User tim = new User(emailAddress: "tim.shier@instantafrica.com", "Timbo", "Shier","12345", role:)
-
-        /*
-        * String emailAddress
-    String firstName
-    String lastName
-    String password // encrypted.
-
-
-
-    RoleTypeEnum role
-        *
-        * */
     }
 }
