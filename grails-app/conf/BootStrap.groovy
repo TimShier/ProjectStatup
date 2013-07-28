@@ -7,6 +7,7 @@ import startupfunnel.app.Question
 import startupfunnel.app.Stage
 import startupfunnel.app.enums.StageStatus
 import startupfunnel.app.Answer
+import startupfunnel.app.Score
 
 class BootStrap {
 
@@ -115,14 +116,16 @@ class BootStrap {
          *    --- QUESTIONS ---
         */
         Question question1 = new Question(
+                text: "Is this Question 1?",
                 value: 10,
                 helpText: "Answer the question",
                 stage: stage1
         ).save()
 
         Question question2 = new Question(
+                text: "Ron Burgundy?",
                 value: 20,
-                helpText: "Answer the question",
+                helpText: "Answer the question2",
                 stage: stage1,
                 orderIndex: 1
         ).save()
@@ -131,8 +134,50 @@ class BootStrap {
          *    --- ANSWERS ---
         */
         Answer answer1 = new Answer(
+                text: "yes",
+                question: question1
+        ).save()
 
-        )
+        Answer answer2 = new Answer(
+                text: "no",
+                question: question1,
+                versionNumber: 1
+        ).save()
+
+        Answer answer3 = new Answer(
+                text: "maybe",
+                question: question1,
+                versionNumber: 2
+        ).save()
+
+        Answer answer4 = new Answer(
+                text: "only when in doubt.",
+                question: question2,
+        ).save()
+
+        /*
+         *    --- SCORES ---
+        */
+        Score score1 = new Score(
+                createdBy: mentor,
+                feedback: "rad. dug it.",
+                value: 8,
+                answer: answer3
+        ).save()
+
+        Score score2 = new Score(
+                createdBy: adjudicator,
+                feedback: "horrible..",
+                value: 1,
+                answer: answer3
+        ).save()
+
+        Score score3 = new Score(
+                createdBy: mentor,
+                feedback: "decent.",
+                value: 5,
+                answer: answer2
+        ).save()
 
     }
     def destroy = {

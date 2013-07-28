@@ -2,8 +2,9 @@ package startupfunnel.app
 
 class Answer {
     User createdBy
-    Integer versionNumber
-    String value
+    Integer versionNumber = 0
+    Integer value
+    String text
     Date dateCreated
 
     static belongsTo = [question:Question]
