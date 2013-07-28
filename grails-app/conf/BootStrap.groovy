@@ -6,6 +6,7 @@ import startupfunnel.app.Contact
 import startupfunnel.app.Question
 import startupfunnel.app.Stage
 import startupfunnel.app.enums.StageStatus
+import startupfunnel.app.Answer
 
 class BootStrap {
 
@@ -125,6 +126,13 @@ class BootStrap {
                 stage: stage1,
                 orderIndex: 1
         ).save()
+
+        /*
+         *    --- ANSWERS ---
+        */
+        Answer answer1 = new Answer(
+
+        )
 
     }
     def destroy = {
