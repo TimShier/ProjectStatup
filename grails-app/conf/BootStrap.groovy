@@ -13,13 +13,13 @@ class BootStrap {
 
         RoleTypeEnum role    */
 
-       /* User user1 = new User(
-                emailAddress: "email@address.com",
-                firstName: "first",
-                lastName: "last",
-                password: "pA5sW0rD",
-                role: RoleType
-        ).save()*/
+        User user1 = new User(
+                emailAddress: "admin@projectstartup.com",
+                firstName: "admin",
+                lastName: "admin",
+                password: "password",
+                role: RoleType.ADMIN
+        ).save()
 
         User tim = new User(
                  emailAddress: "tim.shier@instantafrica.com",

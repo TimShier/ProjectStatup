@@ -1,14 +1,14 @@
 package startupfunnel.app
 
-import startupfunnel.app.enums.RolePositionEnum
-import startupfunnel.app.enums.RoleTypeEnum
+import startupfunnel.app.enums.RoleType
+import startupfunnel.app.enums.RolePosition
+
 
 class Contact {
     User user
 
-    RoleTypeEnum role
-
-    RolePositionEnum.RolePosition position
+    RoleType role
+    RolePosition position
 
     Date dateCreated
 
