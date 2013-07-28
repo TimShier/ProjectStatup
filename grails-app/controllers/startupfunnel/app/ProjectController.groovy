@@ -31,13 +31,14 @@ class ProjectController {
     }
 
     def continueProject(){
-        // expects project ID.
+        // expects project ID in params.id
         println params
         Project project = Project.get(params.id)
         if(!project)
         {
             flash.message = "Couldn't find that project"
-            redirect(action:"list")
+            println "FAILED"
+            redirect(action:"index")
             return
         }
 
@@ -48,7 +49,7 @@ class ProjectController {
         Map questionAnswerMap = [:]
 
         stage.questions.sort{it.orderIndex}.each{Question question ->
-            List <Answer> answers = Answer.findAllByQuestion(question).sort{it.versionNumber}
+            List <Answer> answers = Answer.findAllByQuestionAndProject(question, project).sort{it.versionNumber}
 
             questionAnswerMap[question] = answers
         }
