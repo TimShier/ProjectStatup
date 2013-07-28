@@ -157,27 +157,31 @@ class BootStrap {
         Answer answer1 = new Answer(
                 text: "yes",
                 project: project1,
-                createdBy: student
+                createdBy: student,
+                question: question1
         ).save(failOnError: true)
 
         Answer answer2 = new Answer(
                 text: "no",
                 project: project1,
                 versionNumber: 1,
-                createdBy: student
+                createdBy: student,
+                question: question1
         ).save(failOnError: true)
 
         Answer answer3 = new Answer(
                 text: "maybe",
                 project: project1,
                 versionNumber: 2,
-                createdBy: student
+                createdBy: student,
+                question: question1
         ).save(failOnError: true)
 
         Answer answer4 = new Answer(
                 text: "only when in doubt.",
                 project: project1,
                 createdBy: student,
+                question: question2
         ).save(failOnError: true)
 
         /*

@@ -17,17 +17,25 @@
 			</ul>
 		</div>
 		<div id="show-projectSkeleton" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1>${projectSkeletonInstance?.name}</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list projectSkeleton">
-			
+               %{-- <g:if test="${projectSkeletonInstance?.name}">
+                    <li class="fieldcontain">
+                        <span id="name-label" class="property-label"><g:message code="projectSkeleton.name.label" default="Name" /></span>
+
+                        <span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${projectSkeletonInstance}" field="name"/></span>
+
+                    </li>
+                </g:if>--}%
+
 				<g:if test="${projectSkeletonInstance?.createdBy}">
 				<li class="fieldcontain">
 					<span id="createdBy-label" class="property-label"><g:message code="projectSkeleton.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${projectSkeletonInstance?.createdBy?.id}">${projectSkeletonInstance?.createdBy?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${projectSkeletonInstance?.createdBy?.id}">${projectSkeletonInstance?.createdBy?.emailAddress?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -50,15 +58,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${projectSkeletonInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="projectSkeleton.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${projectSkeletonInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${projectSkeletonInstance?.stages}">
 				<li class="fieldcontain">
 					<span id="stages-label" class="property-label"><g:message code="projectSkeleton.stages.label" default="Stages" /></span>
@@ -69,7 +68,6 @@
 					
 				</li>
 				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
