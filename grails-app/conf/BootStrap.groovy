@@ -73,7 +73,7 @@ class BootStrap {
                 name: "Project One",
                 startDate: new Date(),
                 presentationDate: new Date() + 200 // in 200 days time.
-        ).save()
+        ).save(failOnError: true)
 
 
         /*
@@ -136,7 +136,8 @@ class BootStrap {
 
         ProjectSkeleton projectSkeleton = new ProjectSkeleton(
                 name: "Standard template",
-                stages: [stage1]
+                stages: [stage1],
+                createdBy: admin
         ).save(failOnError: true)
 
         project1.skeleton = projectSkeleton

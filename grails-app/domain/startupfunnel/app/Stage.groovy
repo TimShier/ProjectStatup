@@ -14,6 +14,7 @@ class Stage {
     Integer orderIndex = 0 // order that the stage will run.
 
     static hasMany=[questions:Question]
+    static belongsTo = [skeleton:ProjectSkeleton]
 
     static constraints = {
         mark(nullable:true) // must be to start.
