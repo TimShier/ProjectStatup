@@ -37,7 +37,7 @@ class ProjectController {
         if(!project)
         {
             flash.message = "Couldn't find that project"
-            redirect(action:"index")
+            redirect(action:"list")
             return
         }
 
