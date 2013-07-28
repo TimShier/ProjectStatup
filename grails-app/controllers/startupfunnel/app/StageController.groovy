@@ -40,7 +40,7 @@ class StageController {
                 println "${answer} << Answer"
 
             }
-
+            [questionAnswerMap:questionAnswerMap]
         }
         else
         {
