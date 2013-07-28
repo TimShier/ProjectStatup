@@ -36,6 +36,7 @@ class ProjectController {
         Project project = Project.get(params.id)
         if(!project)
         {
+            flash.message = "Couldn't find that project"
             redirect(action:"index")
             return
         }
