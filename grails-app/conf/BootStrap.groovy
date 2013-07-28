@@ -13,13 +13,39 @@ class BootStrap {
 
         RoleTypeEnum role    */
 
-        User user1 = new User(
+        User admin = new User(
                 emailAddress: "admin@projectstartup.com",
                 firstName: "admin",
                 lastName: "admin",
                 password: "password",
                 role: RoleType.ADMIN
         ).save()
+
+        User student = new User(
+                emailAddress: "student@projectstartup.com",
+                firstName: "student",
+                lastName: "student",
+                password: "password",
+                role: RoleType.ADMIN
+        ).save()
+
+        User mentor = new User(
+                emailAddress: "mentor@projectstartup.com",
+                firstName: "mentor",
+                lastName: "mentor",
+                password: "password",
+                role: RoleType.ADMIN
+        ).save()
+
+        User adjudicator = new User(
+                emailAddress: "adjudicator@projectstartup.com",
+                firstName: "adjudicator",
+                lastName: "adjudicator",
+                password: "password",
+                role: RoleType.ADMIN
+        ).save()
+
+
 
     }
     def destroy = {
