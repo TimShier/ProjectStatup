@@ -6,5 +6,6 @@ class Score {
     String feedback
 
     static constraints = {
+
     }
 }
