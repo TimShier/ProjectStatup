@@ -1,8 +1,8 @@
 import startupfunnel.app.User
+import startupfunnel.app.enums.RolePosition
 import startupfunnel.app.enums.RoleType
 import startupfunnel.app.Project
 import startupfunnel.app.Contact
-import startupfunnel.app.enums.RolePosition
 
 class BootStrap {
 
