@@ -1,9 +1,9 @@
 package startupfunnel.app
 
-import startupfunnel.app.enums.StageStatusEnum
+import startupfunnel.app.enums.StageStatus
 
 class Stage {
-    StageStatusEnum stage
+    StageStatus stage
     Date startDate
     Date endDate
     Date dateCreated
