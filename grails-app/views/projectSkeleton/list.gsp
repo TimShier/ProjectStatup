@@ -23,29 +23,25 @@
 			<table>
 				<thead>
 					<tr>
-					
-						<th><g:message code="projectSkeleton.createdBy.label" default="Created By" /></th>
-					
+                        <g:sortableColumn property="name" title="${message(code: 'projectSkeleton.name.label', default: 'Name')}" />
+
+                        <g:sortableColumn property="createdBy.emailAddress" title="${message(code: 'projectSkeleton.createdBy.label', default: 'Created By')}" />
+
 						<g:sortableColumn property="dateCreated" title="${message(code: 'projectSkeleton.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'projectSkeleton.lastUpdated.label', default: 'Last Updated')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'projectSkeleton.name.label', default: 'Name')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${projectSkeletonInstanceList}" status="i" var="projectSkeletonInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${projectSkeletonInstance.id}">${fieldValue(bean: projectSkeletonInstance, field: "createdBy")}</g:link></td>
+                        <td><g:link action="show" id="${projectSkeletonInstance.id}">${fieldValue(bean: projectSkeletonInstance, field: "name")}</g:link></td>
+
+                        <td><g:link controller="user" action="show" id="${projectSkeletonInstance.createdBy.id}">${projectSkeletonInstance?.createdBy?.emailAddress}</g:link></td>
 					
 						<td><g:formatDate date="${projectSkeletonInstance.dateCreated}" /></td>
 					
 						<td><g:formatDate date="${projectSkeletonInstance.lastUpdated}" /></td>
-					
-						<td>${fieldValue(bean: projectSkeletonInstance, field: "name")}</td>
-					
 					</tr>
 				</g:each>
 				</tbody>
