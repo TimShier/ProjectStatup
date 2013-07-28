@@ -158,6 +158,7 @@ class BootStrap {
                 text: "yes",
                 project: project1,
                 createdBy: student,
+                value: 2,
                 question: question1
         ).save(failOnError: true)
 
@@ -166,6 +167,7 @@ class BootStrap {
                 project: project1,
                 versionNumber: 1,
                 createdBy: student,
+                value: 5,
                 question: question1
         ).save(failOnError: true)
 
@@ -173,6 +175,7 @@ class BootStrap {
                 text: "maybe",
                 project: project1,
                 versionNumber: 2,
+                value: 4,
                 createdBy: student,
                 question: question1
         ).save(failOnError: true)
@@ -180,6 +183,7 @@ class BootStrap {
         Answer answer4 = new Answer(
                 text: "only when in doubt.",
                 project: project1,
+                value: 8,
                 createdBy: student,
                 question: question2
         ).save(failOnError: true)
@@ -206,6 +210,13 @@ class BootStrap {
                 feedback: "decent.",
                 value: 5,
                 answer: answer2
+        ).save(failOnError: true)
+
+        Score score4 = new Score(
+                createdBy: mentor,
+                feedback: "Sigh - issue?",
+                value: 5,
+                answer: answer4
         ).save(failOnError: true)
 
     }

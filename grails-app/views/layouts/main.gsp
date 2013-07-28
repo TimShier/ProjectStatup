@@ -67,7 +67,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </a>
-    <g:link controller="survey" action="dashboard" class="brand"><img alt="MobiServ Dashboard" style="margin-top:-5px;" src="${resource(dir: 'images', file: 'logo.png')}"/><span class="hidden-phone">MobiServ Dashboard</span></g:link>
+    <g:link controller="survey" action="dashboard" class="brand"><img alt="Project Startup Dashboard" style="margin-top:-5px;" src="${resource(dir: 'images', file: 'logo.png')}"/><span class="hidden-phone">Project Startup Dashboard</span></g:link>
 
 
     <!-- start: Header Menu -->
@@ -170,7 +170,7 @@
 
     <footer>
         <p>
-            <span style="text-align:left;float:left">&copy; <a href="http://www.mobiserv.me" target="_blank">Project Startup</a> 2013</span>
+            <span style="text-align:left;float:left">&copy; <a href="http://www.42engines.com" target="_blank">Project Startup</a> 2013</span>
         </p>
 
     </footer>
